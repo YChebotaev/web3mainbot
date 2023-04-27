@@ -1,0 +1,26 @@
+.faqBlock {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: column;
+  gap: 15px;
+}
+
+.faqItem {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.faqTitle {
+  font-family: 'SF UI Display Medium';
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.faqText {
+  font-family: 'SF UI Display Light';
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.8);
+}

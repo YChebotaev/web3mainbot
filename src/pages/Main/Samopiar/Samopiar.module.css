@@ -1,0 +1,46 @@
+.samopiar {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+}
+
+.iconWrapper {
+}
+
+.icon {
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+.icon1 {
+  background-image: url("./samopiar-icon-mdk.png");
+}
+
+.icon2 {
+  background-image: url("./samopiar-icon-money.png");
+}
+
+.icon3 {
+  background-image: url("./samopiar-icon-cryptocurrency-blockchain.png");
+}
+
+.textWrapper {
+  padding-top: 10px;
+}
+
+.text {
+  font-family: 'SF UI Display Semibold';
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.textHighlight {
+  color: #ad81f7;
+}

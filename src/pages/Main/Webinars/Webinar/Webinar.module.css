@@ -1,0 +1,72 @@
+.webinar {
+  display: flex;
+  flex-flow: column;
+  gap: 15px;
+}
+
+.title {
+  font-family: "SF UI Display Semibold";
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.block1 {
+  display: flex;
+  gap: 10px;
+}
+
+.block1Left {
+}
+
+.block1Right {
+}
+
+.time {
+  font-family: "SF UI Display Semibold";
+  font-size: 13px;
+  line-height: 16px;
+  color: #c184ff;
+}
+
+.kind {
+  font-family: "SF UI Display Light";
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.block2 {
+}
+
+.block2Title {
+  font-family: "SF UI Display Semibold";
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-family: "SF UI Display Light";
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.block3 {
+}
+
+.button {
+  display: block;
+  width: 100%;
+  font-family: "SF UI Display Medium";
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(274.09deg, rgba(91, 10, 120, 0.5) 2.7%, rgba(173, 129, 247, 0.5) 98.26%), #B078E7;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}
