@@ -12,3 +12,15 @@
 .list {
   margin-top: 20px;
 }
+
+.block2 {
+  margin-top: 10px;
+}
+
+.phoneLabel {
+  font-family: 'SF UI Display Light';
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.8);
+}

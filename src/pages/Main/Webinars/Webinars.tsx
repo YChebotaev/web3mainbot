@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { Webinar } from './Webinar'
 
 import classes from './Webinars.module.css'
+import { Phone } from '../../../components/Phone'
 
 export const Webinars: FC<{ className?: string, style?: CSSProperties }> = ({ className, style }) => (
   <div className={cn(classes.webinars, className)} style={style}>
@@ -15,6 +16,10 @@ export const Webinars: FC<{ className?: string, style?: CSSProperties }> = ({ cl
         kind="Онлайн-встреча инвесторов"
         description="Обсудим планы команды, проекта MAIN и ожидаемый рост пользователей и всего проекта. Как наша социальная сеть становится #1 web3 социальной сетью"
       />
+    </div>
+    <div className={classes.block2}>
+      <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
+      <Phone />
     </div>
   </div>
 )

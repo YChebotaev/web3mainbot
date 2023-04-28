@@ -6,6 +6,7 @@ import walletImage from "./wallet.png";
 import coinImage from "./coin.svg";
 import pancakeswapImage from "./pancakeswap-logo.svg";
 import mainImage from "./main-mini-logo.png";
+import { Phone } from "../../../components/Phone";
 
 export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
   className,
@@ -63,6 +64,10 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
           }}
         />
       </button>
+    </div>
+    <div className={classes.block5}>
+      <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
+      <Phone />
     </div>
     <img
       className={classes.wallet}
