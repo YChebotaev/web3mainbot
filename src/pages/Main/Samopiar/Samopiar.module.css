@@ -24,6 +24,12 @@
 
 .icon2 {
   background-image: url("./samopiar-icon-money.png");
+  width: 50px;
+  height: 50px;
+}
+
+.icon2Wrapper {
+  padding: 5px;
 }
 
 .icon3 {
@@ -35,7 +41,7 @@
 }
 
 .text {
-  font-family: 'SF UI Display Semibold';
+  font-family: "SF UI Display Semibold";
   font-size: 12px;
   line-height: 16px;
   color: #ffffff;

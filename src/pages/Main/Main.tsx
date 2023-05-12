@@ -1,4 +1,5 @@
-import { type FC } from "react";
+import { Suspense, type FC } from "react";
+import cn from "classnames";
 
 import { Page } from "../../components/Page";
 import { Hero } from "./Hero";
@@ -23,15 +24,19 @@ export const Main: FC = () => (
       <div className={classes.blockHeader}>О токене MAIN</div>
       <Samopiar />
     </div>
-    <div className={classes.block}>
-      <div className={classes.blockHeader}>О MAIN пишут</div>
-      <MediaList />
+    <div className={cn(classes.block, classes.mediaWrapper)}>
+      <div className={cn(classes.blockHeader, classes.mediaHeader)}>
+        О MAIN пишут
+      </div>
+      <MediaList className={classes.mediaList} />
     </div>
-    <div className={classes.block}>
-      <div className={classes.blockHeader}>Крипто рейтинги</div>
-      <RatingsList />
+    <div className={cn(classes.block, classes.ratingsWrapper)}>
+      <div className={cn(classes.blockHeader, classes.ratingsHeader)}>
+        Крипто рейтинги
+      </div>
+      <RatingsList className={classes.ratingsList} />
     </div>
-    <div className={classes.block}>
+    <div className={cn(classes.block, classes.faqWrapper)}>
       <div className={classes.blockHeader}>FAQ</div>
       <FAQ />
     </div>

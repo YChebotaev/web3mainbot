@@ -1,11 +1,12 @@
 import { type FC } from "react";
+import cn from 'classnames'
 
 import dummyGraphImage from "./rating-list-graph-dummy.svg";
 
 import classes from "./RatingsList.module.css";
 
-export const RatingsList: FC = () => (
-  <div className={classes.ratingsListWrapper}>
+export const RatingsList: FC<{ className: string }> = ({ className }) => (
+  <div className={cn(classes.ratingsListWrapper, className)}>
     <div className={classes.ratingsList}>
       <div className={classes.item}>
         <div className={classes.itemIconWrapper}>

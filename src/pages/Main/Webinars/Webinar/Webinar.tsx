@@ -7,7 +7,8 @@ export const Webinar: FC<{
   time: string;
   kind: string;
   description: string;
-}> = ({ title, time, kind, description }) => (
+  onClickButton?(): void;
+}> = ({ title, time, kind, description, onClickButton }) => (
   <div className={classes.webinar}>
     <div className={classes.title}>{title}</div>
     <div className={classes.block1}>
@@ -23,7 +24,9 @@ export const Webinar: FC<{
       <div className={classes.description}>{description}</div>
     </div>
     <div className={classes.block3}>
-      <button className={classes.button}>Пойти на онлайн-встречу</button>
+      <button className={classes.button} onClick={onClickButton}>
+        Пойти на онлайн-встречу
+      </button>
     </div>
   </div>
 );

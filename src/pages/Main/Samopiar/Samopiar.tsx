@@ -17,7 +17,7 @@ export const Samopiar: FC = () => (
       </div>
     </div>
     <div className={classes.line}>
-      <div className={classes.iconWrapper}>
+      <div className={cn(classes.iconWrapper, classes.icon2Wrapper)}>
         <div className={cn(classes.icon, classes.icon2)} />
       </div>
       <div className={classes.textWrapper}>

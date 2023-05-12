@@ -17,9 +17,36 @@
 }
 
 .blockHeader {
-  font-family: 'SF UI Display Semibold';
+  font-family: "SF UI Display Semibold";
   font-size: 24px;
   line-height: 22px;
   color: #ffffff;
   margin-bottom: 15px;
+}
+
+.mediaWrapper {
+  padding: 20px 0;
+}
+
+.mediaHeader {
+  padding: 0 20px;
+}
+
+.mediaList {
+  padding: 0 20px;
+}
+
+.ratingsWrapper {
+  padding: 20px 0;
+}
+
+.ratingsHeader {
+  padding: 0 20px;
+}
+
+.ratingsList {
+  padding: 0 20px;
+}
+
+.faqWrapper {
 }

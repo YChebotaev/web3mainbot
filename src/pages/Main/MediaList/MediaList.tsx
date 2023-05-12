@@ -3,8 +3,8 @@ import cn from "classnames";
 
 import classes from "./MediaList.module.css";
 
-export const MediaList: FC = () => (
-  <div className={classes.mediaListWrapper}>
+export const MediaList: FC<{ className?: string }> = ({ className }) => (
+  <div className={cn(classes.mediaListWrapper, className)}>
     <div className={classes.mediaList}>
       <div className={classes.item}>
         <div className={classes.itemLogoWrapper}>
