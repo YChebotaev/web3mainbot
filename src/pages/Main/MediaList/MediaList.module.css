@@ -8,9 +8,11 @@
 }
 
 .item {
+  display: block ;
   min-width: 140px;
   background: rgba(176, 120, 231, 0.2);
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .itemLogoWrapper {
@@ -21,16 +23,70 @@
   background-size: cover;
 }
 
-.itemLogo1 {
-  width: 60px;
-  height: 16px;
-  background-image: url("./media-list-logo-rbc.svg");
+.itemLogoSnob {
+  background-image: url("./snob.svg");
+  width: 50px;
+  height: 15px;
 }
 
-.itemLogo2 {
-  width: 51px;
+.itemLogoRidus {
+  background-image: url("./ridus.png");
+  width: 50px;
+  height: 20px;
+}
+
+.itemLogoSahaMedia {
+  background-image: url("./sahamedia.svg");
+  width: 73px;
+  height: 13px;
+}
+
+.itemLogoTexTerra {
+  background-image: url("./texterra.png");
+  width: 60px;
+  height: 14px;
+}
+
+.logoTexterra {
+  background-image: url("./texterra.png");
+  width: 60px;
+  height: 14px;
+}
+
+.itemLogoRBK {
+  background-image: url("./rbk.svg");
+  width: 60px;
+  height: 16px;
+}
+
+.itemLogoLife {
+  background-image: url("./life.svg");
+  width: 34px;
+  height: 13px;
+}
+
+.itemLogoFontanka {
+  background-image: url("./fontanka.svg");
+  width: 80px;
   height: 18px;
-  background-image: url("./media-list-logo-rb.svg");
+}
+
+.itemLogoAdIndex {
+  background-image: url("./adindex.png");
+  width: 70px;
+  height: 14px;
+}
+
+.itemLogoLenta {
+  background-image: url("./lenta.png");
+  width: 81px;
+  height: 13px;
+}
+
+.itemLogoForbes {
+  background-image: url("./forbes.svg");
+  width: 64px;
+  height: 16px;
 }
 
 .itemTextWrapper {

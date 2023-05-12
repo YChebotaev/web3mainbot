@@ -17,7 +17,7 @@ export const Webinars: FC<{ className?: string; style?: CSSProperties }> = ({
       <div className={classes.title}>Мероприятия</div>
       <div className={classes.list}>
         <Webinar
-          title="MAIN — это Фейсбук будущего Что ждет Web3.0 в ближайшей перспективе?"
+          title="MAIN — это Фейсбук будущего. Что ждет Web3.0 в ближайшей перспективе?"
           time="10 марта в 19:00"
           kind="Онлайн-встреча инвесторов"
           description="Обсудим планы команды, проекта MAIN и ожидаемый рост пользователей и всего проекта. Как наша социальная сеть становится #1 web3 социальной сетью"

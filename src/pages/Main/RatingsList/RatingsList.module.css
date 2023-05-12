@@ -24,6 +24,13 @@
   background-image: url("./rating-list-logo-dapp-radar.svg");
 }
 
+.itemIcon2 {
+  background-size: cover;
+  width: 97px;
+  height: 25px;
+  background-image: url("./dapp-bay.png");
+}
+
 .itemBody {
   display: flex;
   justify-content: space-between;
