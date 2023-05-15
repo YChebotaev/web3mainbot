@@ -22,6 +22,19 @@ export const MediaList: FC<{ className?: string }> = ({ className }) => (
   <div className={cn(classes.mediaListWrapper, className)}>
     <div className={classes.mediaList}>
       <Item
+        href="https://www.rbc.ru/crypto/news/6433be3e9a79471d61ee7329"
+        logoClassName={classes.itemLogoRBK}
+      >
+        Зарождающийся тренд. Почему за децентрали- зованными соцсетями будущее
+      </Item>
+      <Item
+        href="https://www.forbes.ru/rubriki-kanaly/video/438731-osnovatel-mdk-roberto-pancvidze-forbes-u-gosudarstva-vsegda-na-odnu-pulu-bol-se"
+        logoClassName={classes.itemLogoForbes}
+      >
+        Основатель MDK Роберто Панчвидзе — Forbes: «У государства всегда на одну
+        пулю больше»
+      </Item>
+      <Item
         href="https://snob.ru/interview/osnovatel-mdk-roberto-panchvidze-ochen-vazhno-sledit-za-svoej-reputaciej/"
         logoClassName={classes.itemLogoSnob}
       >
@@ -47,12 +60,6 @@ export const MediaList: FC<{ className?: string }> = ({ className }) => (
         Хулиганы выросли и стали проджектами – интервью с создателем MDK
       </Item>
       <Item
-        href="https://www.rbc.ru/crypto/news/6433be3e9a79471d61ee7329"
-        logoClassName={classes.itemLogoRBK}
-      >
-        Зарождающийся тренд. Почему за децентрали- зованными соцсетями будущее
-      </Item>
-      <Item
         href="https://life.ru/p/1458816"
         logoClassName={classes.itemLogoLife}
       >
@@ -75,13 +82,6 @@ export const MediaList: FC<{ className?: string }> = ({ className }) => (
         logoClassName={classes.itemLogoLenta}
       >
         Основатель MDK возглавил блогерское агентство
-      </Item>
-      <Item
-        href="https://www.forbes.ru/rubriki-kanaly/video/438731-osnovatel-mdk-roberto-pancvidze-forbes-u-gosudarstva-vsegda-na-odnu-pulu-bol-se"
-        logoClassName={classes.itemLogoForbes}
-      >
-        Основатель MDK Роберто Панчвидзе — Forbes: «У государства всегда на одну
-        пулю больше»
       </Item>
     </div>
   </div>

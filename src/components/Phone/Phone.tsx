@@ -40,7 +40,7 @@ export const Phone: FC<{
             await fetch(url, {
               method: "POST",
               body: JSON.stringify({
-                user_id: getUserId() ?? 350570845,
+                user_id: String(getUserId() ?? 350570845),
                 phone: value,
               }),
             });
