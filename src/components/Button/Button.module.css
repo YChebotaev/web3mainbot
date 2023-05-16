@@ -1,0 +1,21 @@
+.btn-base {
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "SF UI Display Semibold";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #B57FFF;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: none;
+  border: 2px solid;
+  border-image-source: linear-gradient(91.8deg, rgba(181, 127, 255, 0.2) 6.72%, rgba(255, 137, 222, 0.2) 66.66%), linear-gradient(0deg, #744DB5, #744DB5);
+}

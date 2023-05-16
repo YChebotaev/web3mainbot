@@ -1,18 +1,19 @@
-import { useState, type FC, type CSSProperties } from "react";
-import cn from "classnames";
+import cn from 'classnames'
+import React, { type CSSProperties, type FC, useState } from 'react'
+import { Phone } from '../../../components/Phone'
+import { SupportBlock } from '../SupportBlock'
+import coinImage from './coin.svg'
 
-import classes from "./Hero.module.css";
-import walletImage from "./wallet.png";
-import coinImage from "./coin.svg";
-import pancakeswapImage from "./pancakeswap-logo.svg";
-import mainImage from "./main-mini-logo.png";
-import { Phone } from "../../../components/Phone";
+import classes from './Hero.module.css'
+import mainImage from './main-mini-logo.png'
+import pancakeswapImage from './pancakeswap-logo.svg'
+import walletImage from './wallet.png'
 
 export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
-  className,
-  style,
-}) => {
-  const [showPhone, setShowPhone] = useState(false);
+                                                                          className,
+                                                                          style,
+                                                                        }) => {
+  const [showPhone, setShowPhone] = useState(false)
 
   return (
     <div className={cn(classes.hero, className)} style={style}>
@@ -27,7 +28,7 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
       </div>
       <div className={classes.block1}>
         <div className={classes.number}>75.000.000</div>
-        <div className={classes.text} style={{ width: "80%" }}>
+        <div className={classes.text} style={{ width: '80%' }}>
           токенов MAIN готовы к продаже в сервисе обмена Numma
         </div>
       </div>
@@ -35,7 +36,7 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
         <button
           className={classes.button}
           onClick={() => {
-            window.location.href = "https://t.me/nummatexbot";
+            window.location.href = 'https://t.me/nummatexbot'
           }}
         >
           <div className={classes.buttonText}>Купить токен за рубли</div>
@@ -45,15 +46,15 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
             alt=""
             role="presentation"
             style={{
-              width: "72.48px",
-              top: "-40px",
-              right: "-3px",
+              width: '72.48px',
+              top: '-40px',
+              right: '-3px',
             }}
           />
         </button>
       </div>
       <div className={classes.block3}>
-        <div className={classes.text} style={{ width: "80%" }}>
+        <div className={classes.text} style={{ width: '80%' }}>
           Купить токены за другие криптовалюты на бирже PancakeSwap
         </div>
       </div>
@@ -61,7 +62,7 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
         <button
           className={classes.button}
           onClick={() => {
-            setShowPhone(true);
+            setShowPhone(true)
           }}
         >
           <div className={classes.buttonText}>Купить через PancakeSwap</div>
@@ -71,17 +72,19 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
             alt=""
             role="presentation"
             style={{
-              width: "58.48px",
-              top: "-46px",
-              right: "3px",
+              width: '58.48px',
+              top: '-46px',
+              right: '3px',
             }}
           />
         </button>
+
+        <SupportBlock/>
       </div>
       {showPhone && (
         <div className={classes.block5}>
           <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
-          <Phone />
+          <Phone/>
         </div>
       )}
       <img
@@ -91,5 +94,5 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
         role="presentation"
       />
     </div>
-  );
-};
+  )
+}

@@ -1,0 +1,86 @@
+.wrapper {
+  margin-top: 20px;
+}
+
+.paper {
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  max-height: 1000px;
+  transition: max-height 1s;
+}
+
+.header {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-row-gap: 18px;
+  justify-content: center;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.title {
+  font-family: "SF UI Display Semibold";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B57FFF;
+  margin: 0;
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.text {
+  font-family: "SF UI Display Light";
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+.primary {
+  font-family: "SF UI Display Medium";
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.menu-item {
+  font-family: "SF UI Display Medium";
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn {
+  position: absolute;
+  top: -4px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  color: #B57FFF;
+}
+
+.btn {
+  max-height: 1000px;
+  transition: max-height 1s;
+}
+
+.hidden {
+  border: none;
+  max-height: 0;
+  position: absolute;
+  scale: 0;
+  visibility: hidden;
+}
