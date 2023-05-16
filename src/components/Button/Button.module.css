@@ -12,10 +12,18 @@
   color: #B57FFF;
   width: 100%;
   cursor: pointer;
+  border: none;
 }
 
 .btn-outline {
   background: none;
   border: 2px solid;
   border-image-source: linear-gradient(91.8deg, rgba(181, 127, 255, 0.2) 6.72%, rgba(255, 137, 222, 0.2) 66.66%), linear-gradient(0deg, #744DB5, #744DB5);
+}
+
+.btn-filled {
+  font-family: "SF UI Display Medium";
+  background: linear-gradient(274.09deg, rgba(91, 10, 120, 0.5) 2.7%, rgba(173, 129, 247, 0.5) 98.26%), #B078E7;
+  border-radius: 10px;
+  color: #fff;
 }

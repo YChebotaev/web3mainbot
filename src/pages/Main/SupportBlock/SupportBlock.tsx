@@ -5,7 +5,11 @@ import { Button, Divider } from '../../../components'
 import { MAIN_BUY_MENU, SUPPORT_MENU } from './constants'
 import classes from './SupportBlock.module.css'
 
-export const SupportBlock = () => {
+type Props = {
+  onStartOnboarding: () => void
+}
+
+export const SupportBlock = ({ onStartOnboarding }: Props) => {
   const [open, setOpen] = useState(false)
   const [isMAIN, setIsMAIN] = useState(false)
 
@@ -19,6 +23,7 @@ export const SupportBlock = () => {
         setIsMAIN(true)
         break
       case 'onboarding':
+        onStartOnboarding()
         break
       case 'question':
         window.location.href = '#'

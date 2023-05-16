@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { type CSSProperties, type FC, useState } from 'react'
+import React, { type CSSProperties, useState } from 'react'
 import { Phone } from '../../../components/Phone'
 import { SupportBlock } from '../SupportBlock'
 import coinImage from './coin.svg'
@@ -9,10 +9,12 @@ import mainImage from './main-mini-logo.png'
 import pancakeswapImage from './pancakeswap-logo.svg'
 import walletImage from './wallet.png'
 
-export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
-                                                                          className,
-                                                                          style,
-                                                                        }) => {
+type Props = {
+  onStartOnboarding: () => void
+  className?: string
+  style?: CSSProperties
+}
+export const Hero = ({ onStartOnboarding, className, style }: Props) => {
   const [showPhone, setShowPhone] = useState(false)
 
   return (
@@ -79,7 +81,7 @@ export const Hero: FC<{ className?: string; style?: CSSProperties }> = ({
           />
         </button>
 
-        <SupportBlock/>
+        <SupportBlock onStartOnboarding={onStartOnboarding}/>
       </div>
       {showPhone && (
         <div className={classes.block5}>

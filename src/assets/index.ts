@@ -1,2 +1,6 @@
 export { ReactComponent as ArrowRightIcon } from './svg/arrowRight.svg'
 export { ReactComponent as ArrowLeftIcon } from './svg/arrowLeft.svg'
+export { ReactComponent as RbkLogoIcon } from './svg/rbkLogo.svg'
+export { ReactComponent as LogoIcon } from './svg/logo.svg'
+export { ReactComponent as UserIcon } from './svg/userIcon.svg'
+export { ReactComponent as BackerIcon } from './svg/backerIcon.svg'

@@ -1,0 +1,148 @@
+.wrapper {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-row-gap: 16px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.title {
+  font-family: 'SF UI Display Bold';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 22px;
+  color: #fff;
+  margin: 0;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text {
+  font-family: 'SF UI Display Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  margin: 0;
+}
+
+.thin {
+  font-family: 'SF UI Display Light';
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.num-list {
+  counter-reset: num;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.num-list li {
+  counter-increment: num;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 12px 0;
+  font-family: 'SF UI Display Light';
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.num-list li:before {
+  content: counter(num);
+  counter-increment: myCounter;
+  color: #B57FFF;
+  display: inline-block;
+  text-align: center;
+  margin-right: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  font-family: 'SF UI Display Medium';
+}
+
+.num-list li:nth-child(-n+9):before {
+  content: "0" counter(num);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 12px 0;
+  font-family: 'SF UI Display Light';
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.list li:before {
+  content: "";
+  background: #B57FFF;
+  display: inline-block;
+  margin: 0 16px 0 6px;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  background: rgba(176, 120, 231, 0.2);
+  border-radius: 10px;
+  padding: 12px 10px;
+}
+
+.ico {
+  position: absolute;
+  bottom: -18px;
+  right: 24px;
+}
+
+.vs {
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.bottom-btn {
+  margin-top: 30px;
+}
+
+
+
+

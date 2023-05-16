@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Main } from './pages/Main'
+import { Onboarding } from './pages/Onboarding/Onboarding'
 
-function App() {
+export const App = () => {
+  const [isOnboarding, setOnboarding] = useState(false)
+
+  const handleCompleteOnboarding = () => setOnboarding(false)
+  const handleStartOnboarding = () => setOnboarding(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {isOnboarding
+        ? <Onboarding onFinish={handleCompleteOnboarding}/>
+        : <Main onStartOnboarding={handleStartOnboarding}/>
+      }
+    </>
+  )
 }
 
-export default App;
