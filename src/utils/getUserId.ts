@@ -1,5 +1,5 @@
-export const getUserId = (): number | undefined => {
+export const getUserId = (): string => {
   const Telegram = Reflect.get(window, 'Telegram')
 
-  return Telegram.WebApp.initDataUnsafe?.user?.id
+  return String(Telegram.WebApp.initDataUnsafe?.user?.id || '')
 }

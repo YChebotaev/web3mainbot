@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import React, { Fragment, MouseEvent, useState } from 'react'
+import { useSetLeadMutation } from '../../../api'
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../assets'
 import { Button, Divider } from '../../../components'
 import { MAIN_BUY_MENU, SUPPORT_MENU } from './constants'
@@ -12,11 +13,18 @@ type Props = {
 export const SupportBlock = ({ onStartOnboarding }: Props) => {
   const [open, setOpen] = useState(false)
   const [isMAIN, setIsMAIN] = useState(false)
+  const [setLead] = useSetLeadMutation()
 
-  const handleNavigate = (link: string) => window.location.href = link
+  const handleClickMAIN = (key: string, link: string) => {
+    if (key === 'question') {
+      setLead().unwrap().then(() => window.location.href = 'https://t.me/web3mainbot')
+      return
+    }
+    window.location.href = link
+  }
   const handleBack = () => setIsMAIN(false)
   const handleOpen = () => setOpen(true)
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClickSupport = (e: MouseEvent<HTMLButtonElement>) => {
     const { id } = e.currentTarget
     switch (id) {
       case 'buy':
@@ -26,7 +34,7 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
         onStartOnboarding()
         break
       case 'question':
-        window.location.href = '#'
+        setLead().unwrap().then(() => window.location.href = 'https://t.me/web3mainbot')
         break
     }
   }
@@ -44,7 +52,7 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
           )}
 
           <h3 className={cn(classes.title, classes.center)}>Поддержка</h3>
-          <p className={cn(classes.text, isMAIN ? classes.primary : '')}>
+          <p className={cn(classes.text, classes.desc, isMAIN ? classes.primary : '')}>
             {isMAIN
               ? 'Способы купить MAIN'
               : 'Выберите, что вас интересует:'
@@ -56,7 +64,7 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
           return (
             <Fragment key={it.key}>
               <Divider/>
-              <button onClick={handleClick} id={it.key} className={cn(classes.title, classes['menu-item'])}>
+              <button onClick={handleClickSupport} id={it.key} className={cn(classes.title, classes['menu-item'])}>
                 {it.title}
                 <ArrowRightIcon/>
               </button>
@@ -68,7 +76,7 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
           return (
             <Fragment key={it.key}>
               <Divider/>
-              <button onClick={() => handleNavigate(it.link)} id={it.key}
+              <button onClick={() => handleClickMAIN(it.key, it.link)} id={it.key}
                       className={cn(classes.title, classes['menu-item'])}>
                 {it.title}
                 <ArrowRightIcon/>

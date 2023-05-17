@@ -1,21 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { Provider } from 'react-redux'
+import { App } from './App'
 
 import './assets/fonts/sf-ui-display-cufonfonts-webfont/style.css'
 import './index.css'
-import { App } from './App'
 import reportWebVitals from './reportWebVitals'
+import store from './store'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-)
-const queryClient = new QueryClient()
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
 root.render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App/>
-    </QueryClientProvider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App/>
+  </Provider>,
 )
+
 reportWebVitals()

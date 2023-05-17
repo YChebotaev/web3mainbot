@@ -10,7 +10,10 @@ type Props = {
 export const Onboarding = ({ onFinish }: Props) => {
   const [step, setStep] = useState(1)
 
-  const handleNext = useCallback(() => setStep(2), [])
+  const handleNext = useCallback(() => {
+    window.scrollTo(0, 0)
+    setStep(2)
+  }, [])
 
   return (
     <div className={classes.wrapper}>

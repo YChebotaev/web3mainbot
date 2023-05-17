@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { LogoIcon, RbkLogoIcon } from '../../../assets'
 import { Button } from '../../../components'
 import Preview from './rbkPreview.png'
@@ -8,13 +8,17 @@ import classes from './Step1.module.css'
 type Props = {
   onNext: () => void
 }
-
 export const Step1 = ({ onNext }: Props) => {
+  const name = useMemo(()=>{
+    const Telegram = Reflect.get(window, 'Telegram')
+
+    return Telegram.WebApp.initDataUnsafe?.user?.first_name || 'друг'
+  }, [])
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
         <LogoIcon/>
-        <h2 className={classes.title}>Привет, Вася!</h2>
+        <h2 className={classes.title}>Привет, {name}!</h2>
       </div>
 
       <div className={classes['text-block']}>

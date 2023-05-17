@@ -21,7 +21,7 @@ export const Step2 = ({ onFinish }: Props) => {
       <div className={classes.cards}>
         {CARDS.map(it=>{
           return (
-            <div className={classes.card}>
+            <div key={it.title} className={classes.card}>
               <p className={classes.text}>
                 {it.title}
               </p>

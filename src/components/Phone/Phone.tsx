@@ -1,55 +1,62 @@
-import { useState, type FC } from "react";
-import PhoneInput from "react-phone-input-2";
+import { useState } from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { useSetUserPhoneMutation } from '../../api'
 
-import { ArrowButton } from "./ArrowButton";
-import { getUserId } from "../../utils";
+import { ArrowButton } from './ArrowButton'
 
-import classes from "./Phone.module.css";
-import "react-phone-input-2/lib/style.css";
+import classes from './Phone.module.css'
 
-export const Phone: FC<{
-  error?: string;
-}> = ({ error }) => {
-  const [value, setValue] = useState("");
+type Props = {
+  onSubmit: (phone: string) => void;
+}
+export const Phone = ({ onSubmit }: Props) => {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState('')
+  const [setUserPhone] = useSetUserPhoneMutation()
+
+  const handleChange = (phone: string) => {
+    setError('')
+    setValue(phone)
+  }
+
+  const handleSubmit = async () => {
+    if (!value) {
+      setError('Введите номер телефона')
+      return
+    }
+    setUserPhone({ phone: value }).unwrap()
+      .then(() => onSubmit(value))
+      .then(() => setValue(''))
+      .then(() => {
+        const Telegram = Reflect.get(window, 'Telegram')
+        Telegram.WebApp.close()
+      })
+  }
 
   return (
-    <div className={classes.phone}>
-      <div className={classes.left}>
-        <PhoneInput
-          enableAreaCodes
-          country="ru"
-          value={value}
-          onChange={setValue}
-          containerClass={classes.container}
-          inputClass={classes.input}
-          buttonClass={classes.button}
-          dropdownClass={classes.dropdown}
-          searchClass={classes.search}
-        />
-        {Boolean(error) && <div className={classes.errorText}>{error}</div>}
-      </div>
-      <div className={classes.right}>
-        <ArrowButton
-          onClick={async () => {
-            if (!value) return;
+    <div>
+      <div className={classes.phone}>
+        <div className={classes.left}>
+          <PhoneInput
+            enableAreaCodes
+            country="ru"
+            value={value}
+            onChange={handleChange}
+            containerClass={classes.container}
+            inputClass={classes.input}
+            buttonClass={classes.button}
+            dropdownClass={classes.dropdown}
+            searchClass={classes.search}
+          />
+        </div>
 
-            const url = new URL(
-              "/api/v1/phone",
-              process.env["REACT_APP_BACKEND_URL"],
-            );
-            await fetch(url, {
-              method: "POST",
-              body: JSON.stringify({
-                user_id: String(getUserId() ?? 350570845),
-                phone: value,
-              }),
-            });
-
-            const Telegram = Reflect.get(window, "Telegram");
-            Telegram.WebApp.close();
-          }}
-        />
+        <div className={classes.right}>
+          <ArrowButton onClick={handleSubmit}/>
+        </div>
       </div>
+
+      {Boolean(error) && <div className={classes.errorText}>{error}</div>}
     </div>
-  );
-};
+  )
+}

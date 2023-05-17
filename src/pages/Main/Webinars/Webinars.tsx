@@ -1,35 +1,55 @@
-import { useState, type FC, type CSSProperties } from "react";
-import cn from "classnames";
+import cn from 'classnames'
+import { type CSSProperties, useState } from 'react'
+import { useGetWebinarQuery } from '../../../api'
+import { Phone } from '../../../components/Phone'
 
-import { Webinar } from "./Webinar";
+import { Webinar } from './Webinar'
 
-import classes from "./Webinars.module.css";
-import { Phone } from "../../../components/Phone";
+import classes from './Webinars.module.css'
 
-export const Webinars: FC<{ className?: string; style?: CSSProperties }> = ({
-  className,
-  style,
-}) => {
-  const [showPhone, setShowPhone] = useState(false);
+type Props = {
+  className?: string;
+  style?: CSSProperties,
+  phone: string | undefined
+}
+export const Webinars = ({ className, style, phone }: Props) => {
+  const { data: webinar } = useGetWebinarQuery()
 
-  return (
-    <div className={cn(classes.webinars, className)} style={style}>
-      <div className={classes.title}>Мероприятия</div>
-      <div className={classes.list}>
-        <Webinar
-          title="MAIN — это Фейсбук будущего. Что ждет Web3.0 в ближайшей перспективе?"
-          time="10 марта в 19:00"
-          kind="Онлайн-встреча инвесторов"
-          description="Обсудим планы команды, проекта MAIN и ожидаемый рост пользователей и всего проекта. Как наша социальная сеть становится #1 web3 социальной сетью"
-          onClickButton={() => setShowPhone(true)}
-        />
-      </div>
-      {showPhone && (
-        <div className={classes.block2}>
-          <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
-          <Phone />
+  const [showPhone, setShowPhone] = useState(false)
+
+  const handleSubmit = () => {
+    setShowPhone(false)
+  }
+  const handleClick = () => {
+    if (!phone) {
+      setShowPhone(true)
+      return
+    }
+    handleSubmit()
+  }
+  if (webinar) {
+    return (
+      <div className={cn(classes.webinars, className)} style={style}>
+        <div className={classes.title}>Мероприятия</div>
+        <div className={classes.list}>
+          <Webinar
+            title={webinar.title}
+            time={webinar.webinar_started_date}
+            kind="Онлайн-встреча инвесторов"
+            description={webinar.day_bf_description || ''}
+            onClickButton={handleClick}
+          />
         </div>
-      )}
-    </div>
-  );
-};
+
+
+        {showPhone && (
+          <div className={classes.block2}>
+            <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
+            <Phone onSubmit={handleSubmit}/>
+          </div>
+        )}
+      </div>
+    )
+  }
+  return null
+}

@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import React from 'react'
 
 import { Page } from '../../components/Page'
 import { FAQ } from './FAQ'
@@ -12,19 +13,23 @@ import { Webinars } from './Webinars'
 
 type Props = {
   onStartOnboarding: () => void
+  phone: string | undefined
 }
 
-export const Main = ({ onStartOnboarding }: Props) => (
+export const Main = ({ onStartOnboarding, phone }: Props) => (
   <Page>
     <div className={classes.heroWrapper}>
-      <Hero onStartOnboarding={onStartOnboarding}/>
+      <Hero phone={phone} onStartOnboarding={onStartOnboarding}/>
     </div>
     <div className={classes.webinarsWrapper}>
-      <Webinars/>
+      <Webinars phone={phone}/>
     </div>
     <div className={classes.separator}/>
     <div className={classes.block}>
       <div className={classes.blockHeader}>О токене MAIN</div>
+      <div className={classes['video-player']}>
+
+      </div>
       <Samopiar/>
     </div>
     <div className={cn(classes.block, classes.mediaWrapper)}>

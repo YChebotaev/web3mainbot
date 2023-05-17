@@ -49,6 +49,10 @@
   line-height: 24px;
 }
 
+.desc {
+  height: 24px;
+}
+
 .menu-item {
   font-family: "SF UI Display Medium";
   font-size: 16px;

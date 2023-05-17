@@ -13,9 +13,23 @@ type Props = {
   onStartOnboarding: () => void
   className?: string
   style?: CSSProperties
+  phone: string | undefined
 }
-export const Hero = ({ onStartOnboarding, className, style }: Props) => {
+export const Hero = ({ onStartOnboarding, className, style, phone }: Props) => {
   const [showPhone, setShowPhone] = useState(false)
+
+  const handlePayByPancakeSwap = () => {
+    setShowPhone(false);
+    window.location.href = 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x8a6f3bf52a26a21531514e23016eeae8ba7e7018'
+  }
+
+  const handleClick = () => {
+    if (!phone) {
+      setShowPhone(true)
+      return
+    }
+    handlePayByPancakeSwap()
+  }
 
   return (
     <div className={cn(classes.hero, className)} style={style}>
@@ -61,12 +75,7 @@ export const Hero = ({ onStartOnboarding, className, style }: Props) => {
         </div>
       </div>
       <div className={classes.block4}>
-        <button
-          className={classes.button}
-          onClick={() => {
-            setShowPhone(true)
-          }}
-        >
+        <button className={classes.button} onClick={handleClick}>
           <div className={classes.buttonText}>Купить через PancakeSwap</div>
           <img
             className={classes.buttonIcon}
@@ -81,14 +90,15 @@ export const Hero = ({ onStartOnboarding, className, style }: Props) => {
           />
         </button>
 
-        <SupportBlock onStartOnboarding={onStartOnboarding}/>
       </div>
       {showPhone && (
         <div className={classes.block5}>
           <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
-          <Phone/>
+          <Phone onSubmit={handlePayByPancakeSwap}/>
         </div>
       )}
+
+      <SupportBlock onStartOnboarding={onStartOnboarding}/>
       <img
         className={classes.wallet}
         src={walletImage}

@@ -50,3 +50,11 @@
 
 .faqWrapper {
 }
+
+.video-player {
+  position: relative;
+  background: #3E395E;
+  border-radius: 10px;
+  padding-bottom: 56.25%;
+  margin: 24px 0;
+}
