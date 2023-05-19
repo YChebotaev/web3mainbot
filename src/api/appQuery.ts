@@ -75,11 +75,11 @@ export const appQuery = createApi({
           body: { user_id: id, is_subscribed: true },
         }),
         transformResponse: (data: { is_subscribed: boolean }) => ({ isSubscribed: data.is_subscribed }),
-        onCacheEntryAdded: (_, { dispatch }) => {
-          dispatch(appQuery.util.updateQueryData(
+        onQueryStarted: (_, { dispatch, queryFulfilled }) => {
+          queryFulfilled.then(() => dispatch(appQuery.util.updateQueryData(
             'getWebinar', undefined,
             (cache) => ({ ...cache, isSubscribed: true }),
-          ))
+          ))).catch()
         },
       }),
 
