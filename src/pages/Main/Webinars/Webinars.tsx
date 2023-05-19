@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { type CSSProperties, useState } from 'react'
-import { useGetWebinarQuery } from '../../../api'
+import { useGetWebinarQuery, useSubscribeToWebinarMutation } from '../../../api'
 import { Phone } from '../../../components/Phone'
 
 import { Webinar } from './Webinar'
@@ -16,8 +16,10 @@ export const Webinars = ({ className, style, phone }: Props) => {
   const { data: webinar } = useGetWebinarQuery()
 
   const [showPhone, setShowPhone] = useState(false)
+  const [subscribe] = useSubscribeToWebinarMutation()
 
   const handleSubmit = () => {
+    subscribe().unwrap()
     setShowPhone(false)
   }
   const handleClick = () => {
@@ -38,6 +40,7 @@ export const Webinars = ({ className, style, phone }: Props) => {
             kind="Онлайн-встреча инвесторов"
             description={webinar.description}
             onClickButton={handleClick}
+            isSubscribed={webinar?.isSubscribed}
           />
         </div>
 

@@ -1,6 +1,6 @@
-import { type FC } from "react";
+import { type FC } from 'react'
 
-import classes from "./Webinar.module.css";
+import classes from './Webinar.module.css'
 
 export const Webinar: FC<{
   title: string;
@@ -8,7 +8,8 @@ export const Webinar: FC<{
   kind: string;
   description: string;
   onClickButton?(): void;
-}> = ({ title, time, kind, description, onClickButton }) => (
+  isSubscribed?: boolean
+}> = ({ title, time, kind, description, onClickButton, isSubscribed }) => (
   <div className={classes.webinar}>
     <div className={classes.title}>{title}</div>
     <div className={classes.block1}>
@@ -24,9 +25,9 @@ export const Webinar: FC<{
       <div className={classes.description}>{description}</div>
     </div>
     <div className={classes.block3}>
-      <button className={classes.button} onClick={onClickButton}>
-        Пойти на онлайн-встречу
+      <button disabled={isSubscribed} className={classes.button} onClick={onClickButton}>
+        {isSubscribed ? 'Вы зарегистрировались на мероприятие' : 'Пойти на онлайн-встречу'}
       </button>
     </div>
   </div>
-);
+)

@@ -21,7 +21,6 @@ export const Phone = ({ onSubmit }: Props) => {
   }
 
   const handleSubmit = async () => {
-    onSubmit(value)
     if (!value) {
       setError('Введите номер телефона')
       return
