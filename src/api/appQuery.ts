@@ -13,7 +13,7 @@ export const appQuery = createApi({
     endpoints: (build) => ({
       getUserById: build.query<User, { id: string, }>({
         query: ({ id }) => ({
-          url: `/phone?user_id=${id}/`,
+          url: `/user_info?user_id=${id}/`,
         }),
         transformResponse: (data: { phone: string, onboarding_complete: boolean }) => {
           return { phone: data.phone, onboardingComplete: data.onboarding_complete }
@@ -55,7 +55,7 @@ export const appQuery = createApi({
           }) as { data?: WebinarSchema, error?: FetchBaseQueryError }
 
           if (data) {
-            const { data: dataS, error } = await baseQuery({
+            const { data: dataS } = await baseQuery({
               url: `/webinar?user_id=${id}/`,
             }) as { data?: { is_subscribed: string }, error?: FetchBaseQueryError }
 
