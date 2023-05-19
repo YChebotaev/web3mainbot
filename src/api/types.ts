@@ -1,3 +1,5 @@
+import { MESSAGE_BUTTON } from './constants'
+
 export type WebinarSchema = {
   'title': string,
   'day_bf_description': null | string,
@@ -32,3 +34,5 @@ export type Webinar = {
   webinarLink: string
   isSubscribed: boolean
 }
+
+export type MessageButtons = typeof MESSAGE_BUTTON[keyof typeof MESSAGE_BUTTON]

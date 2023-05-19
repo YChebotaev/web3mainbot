@@ -1,8 +1,10 @@
 import cn from 'classnames'
 import React, { Fragment, MouseEvent, useState } from 'react'
-import { useSetLeadMutation } from '../../../api'
+import { useSendMessageMutation, useSetLeadMutation } from '../../../api'
+import { MessageButtons } from '../../../api/types'
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../assets'
 import { Button, Divider } from '../../../components'
+import { LINK } from '../constants'
 import { MAIN_BUY_MENU, SUPPORT_MENU } from './constants'
 import classes from './SupportBlock.module.css'
 
@@ -14,13 +16,23 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
   const [open, setOpen] = useState(false)
   const [isMAIN, setIsMAIN] = useState(false)
   const [setLead] = useSetLeadMutation()
+  const [sendMessage] = useSendMessageMutation()
 
   const handleClickMAIN = (key: string, link: string) => {
     if (key === 'question') {
-      setLead().unwrap().then(() => window.location.href = 'https://t.me/web3mainbot')
+      setLead().unwrap()
+        .then(() => window.location.href = LINK.SUPPORT)
+        .then(() => {
+          const Telegram = Reflect.get(window, 'Telegram')
+          Telegram.WebApp.close()
+        })
       return
     }
-    window.location.href = link
+    sendMessage({ messageButton: key as MessageButtons }).unwrap()
+      .then(() => {
+        const Telegram = Reflect.get(window, 'Telegram')
+        Telegram.WebApp.close()
+      })
   }
   const handleBack = () => setIsMAIN(false)
   const handleOpen = () => setOpen(true)
@@ -34,7 +46,12 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
         onStartOnboarding()
         break
       case 'question':
-        setLead().unwrap().then(() => window.location.href = 'https://t.me/web3mainbot')
+        setLead().unwrap()
+          .then(() => window.location.href = LINK.SUPPORT)
+          .then(() => {
+            const Telegram = Reflect.get(window, 'Telegram')
+            Telegram.WebApp.close()
+          })
         break
     }
   }

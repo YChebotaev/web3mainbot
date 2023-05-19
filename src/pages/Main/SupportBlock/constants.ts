@@ -1,3 +1,5 @@
+import { MESSAGE_BUTTON } from '../../../api/constants'
+
 export const SUPPORT_MENU = [
   {
     title: 'Способы купить MAIN',
@@ -14,27 +16,37 @@ export const SUPPORT_MENU = [
     link: null,
     key: 'onboarding',
   },
-  ]
+]
 
 export const MAIN_BUY_MENU = [
   {
+    title: 'Купить MAIN через обменник NUMMA',
+    link: '#',
+    key: MESSAGE_BUTTON.NUMMA_FROM,
+  },
+  {
     title: 'Купить за криптовалюту',
     link: '#',
-    key: 'crypto',
+    key: MESSAGE_BUTTON.CRYPTO_FROM,
   },
   {
     title: 'За рубли с карты через Binance',
     link: '#',
-    key: 'binance',
+    key: MESSAGE_BUTTON.BINANCE_FROM,
   },
   {
-    title: 'Сервис быстрых платежей Numma',
+    title: 'Стейкинг MAIN под 30% APY',
     link: '#',
-    key: 'numma',
+    key: MESSAGE_BUTTON.STAKING,
+  },
+  {
+    title: 'Продать MAIN',
+    link: '#',
+    key: MESSAGE_BUTTON.SELL,
   },
   {
     title: 'Задать вопрос специалисту',
     link: '#',
     key: 'question',
   },
-  ]
+]
