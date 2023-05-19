@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import React, { type CSSProperties, useState } from 'react'
 import { Phone } from '../../../components/Phone'
+import { LINK } from '../constants'
 import { SupportBlock } from '../SupportBlock'
 import coinImage from './coin.svg'
 
@@ -19,8 +20,8 @@ export const Hero = ({ onStartOnboarding, className, style, phone }: Props) => {
   const [showPhone, setShowPhone] = useState(false)
 
   const handlePayByPancakeSwap = () => {
-    setShowPhone(false);
-    window.location.href = 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x8a6f3bf52a26a21531514e23016eeae8ba7e7018'
+    setShowPhone(false)
+    window.location.href = LINK.PANCAKE_SWAP
   }
 
   const handleClick = () => {

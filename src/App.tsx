@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useGetUserByIdQuery } from './api'
+import { Page } from './components/Page'
 import { Main } from './pages/Main'
 import { Onboarding } from './pages/Onboarding/Onboarding'
 import { getUserId } from './utils'
@@ -20,18 +21,18 @@ export const App = () => {
 
   useEffect(() => {
     if (data) {
-      setOnboarding(!data.isOnboardingPassed)
+      setOnboarding(!data.onboardingComplete)
     }
   }, [data])
 
   if (isLoading) {
-    return null
+    return <Page logo={false}/>
   }
 
   return (
     <>
       {isOnboarding
-        ? <Onboarding onFinish={handleCompleteOnboarding}/>
+        ? <Onboarding isCompleted={!!data?.onboardingComplete} onFinish={handleCompleteOnboarding}/>
         : <Main phone={data?.phone} onStartOnboarding={handleStartOnboarding}/>
       }
     </>

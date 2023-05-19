@@ -34,9 +34,9 @@ export const Webinars = ({ className, style, phone }: Props) => {
         <div className={classes.list}>
           <Webinar
             title={webinar.title}
-            time={webinar.webinar_started_date}
+            time={webinar.date}
             kind="Онлайн-встреча инвесторов"
-            description={webinar.day_bf_description || ''}
+            description={webinar.description}
             onClickButton={handleClick}
           />
         </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { useSetUserPhoneMutation } from '../../api'
+import { useSetUserInfoMutation } from '../../api'
 
 import { ArrowButton } from './ArrowButton'
 
@@ -13,7 +13,7 @@ type Props = {
 export const Phone = ({ onSubmit }: Props) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState('')
-  const [setUserPhone] = useSetUserPhoneMutation()
+  const [setUserPhone] = useSetUserInfoMutation()
 
   const handleChange = (phone: string) => {
     setError('')
@@ -21,6 +21,7 @@ export const Phone = ({ onSubmit }: Props) => {
   }
 
   const handleSubmit = async () => {
+    onSubmit(value)
     if (!value) {
       setError('Введите номер телефона')
       return
