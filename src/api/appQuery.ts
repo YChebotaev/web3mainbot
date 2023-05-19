@@ -24,11 +24,12 @@ export const appQuery = createApi({
         query: ({ phone, onboardingComplete }) => ({
           url: `/user_info?user_id=${id}/`,
           method: 'POST',
-          body: () => {
+          body: (() => {
             const body = { user_id: id } as { user_id: string, phone: string, onboarding_complete: boolean }
             phone && (body.phone = phone)
             onboardingComplete && (body.onboarding_complete = onboardingComplete)
-          },
+            return body
+          })(),
         }),
         transformResponse: (data: { phone: string, onboarding_complete: boolean, user_id: string }) => {
           return { phone: data.phone, onboardingComplete: data.onboarding_complete }
