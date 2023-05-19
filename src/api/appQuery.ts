@@ -22,7 +22,7 @@ export const appQuery = createApi({
 
       setUserInfo: build.mutation<User, Partial<User>>({
         query: ({ phone, onboardingComplete }) => ({
-          url: `/user_info?user_id=${id}/`,
+          url: `/user_info/`,
           method: 'POST',
           body: (() => {
             const body = { user_id: id } as { user_id: string, phone: string, onboarding_complete: boolean }
