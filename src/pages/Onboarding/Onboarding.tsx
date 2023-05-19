@@ -21,7 +21,7 @@ export const Onboarding = ({ onFinish, isCompleted }: Props) => {
   const handleComplete = useCallback(() => {
     !isCompleted && completeOnboarding({ onboardingComplete: true }).unwrap();
     onFinish()
-  }, [onFinish])
+  }, [onFinish, isCompleted, completeOnboarding])
 
   return (
     <div className={classes.wrapper}>

@@ -1,5 +1,5 @@
 import { Webinar, WebinarSchema } from './types'
-type Intervals = 'hour' | 'day' | 'minute'
+// type Intervals = 'hour' | 'day' | 'minute'
 export const normalizeWebinar = (data: WebinarSchema, isSubscribed: boolean): Webinar => {
 
   return {
