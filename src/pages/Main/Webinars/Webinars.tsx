@@ -12,6 +12,8 @@ type Props = {
   style?: CSSProperties,
   phone: string | undefined
 }
+
+
 export const Webinars = ({ className, style, phone }: Props) => {
   const { data: webinar } = useGetWebinarQuery()
 

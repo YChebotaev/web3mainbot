@@ -75,14 +75,12 @@ export const appQuery = createApi({
           body: { user_id: id, is_subscribed: true },
         }),
         transformResponse: (data: { is_subscribed: boolean }) => ({ isSubscribed: data.is_subscribed }),
-        onQueryStarted: (_, { dispatch, queryFulfilled }) => {
-          const updated = dispatch(appQuery.util.updateQueryData(
+        onCacheEntryAdded: (_, { dispatch }) => {
+          dispatch(appQuery.util.updateQueryData(
             'getWebinar', undefined,
             (cache) => ({ ...cache, isSubscribed: true }),
           ))
-          queryFulfilled.catch(updated.undo)
         },
-
       }),
 
       setLead: build.mutation<{ id: string, phone: string }, void>({

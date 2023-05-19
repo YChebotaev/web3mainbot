@@ -1,6 +1,8 @@
 import { type FC } from 'react'
+import { DATE_TIME } from '../../../../utils/dateFormat'
 
 import classes from './Webinar.module.css'
+
 
 export const Webinar: FC<{
   title: string;
@@ -14,7 +16,7 @@ export const Webinar: FC<{
     <div className={classes.title}>{title}</div>
     <div className={classes.block1}>
       <div className={classes.block1Left}>
-        <div className={classes.time}>{time}</div>
+        <div className={classes.time}>{DATE_TIME.FORMAT(time, 'DD MMM YYYY в hh:mm')}</div>
       </div>
       <div className={classes.block1Right}>
         <div className={classes.kind}>{kind}</div>
