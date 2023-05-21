@@ -58,3 +58,7 @@
   padding-bottom: 56.25%;
   margin: 24px 0;
 }
+
+.video-player div {
+  border-radius: 10px;
+}

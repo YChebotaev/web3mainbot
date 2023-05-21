@@ -28,7 +28,37 @@ export const Main = ({ onStartOnboarding, phone }: Props) => (
     <div className={classes.block}>
       <div className={classes.blockHeader}>О токене MAIN</div>
       <div className={classes['video-player']}>
+        <div className="wistia_responsive_wrapper"
+             style={{ height: '100%', left: 0, position: 'absolute', top: 0, width: '100%', borderRadius: '10px' }}>
+          <div className="wistia_embed wistia_async_61i76t87pp seo=false videoFoam=true"
+               style={{ height: '100%', position: 'relative', width: '100%', borderRadius: '10px' }}>
+            <div className="wistia_swatch"
+                 style={{
+                   height: '100%',
+                   left: 0,
+                   opacity: 0,
+                   overflow: 'hidden',
+                   position: 'absolute',
+                   top: 0,
+                   transition: 'opacity 200ms',
+                   width: '100%',
+                   borderRadius: '10px',
+                 }}>
+              <img src="https://fast.wistia.com/embed/medias/61i76t87pp/swatch"
+                   style={{
+                     filter: 'blur(5px)',
+                     height: '100%',
+                     objectFit: 'contain',
+                     width: '100%',
+                     borderRadius: '10px',
+                   }} alt=""
+                   aria-hidden="true"
+                // onLoad="this.parentNode.style.opacity=1;"
+              />
+            </div>
+          </div>
 
+        </div>
       </div>
       <Samopiar/>
     </div>

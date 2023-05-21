@@ -2,6 +2,7 @@ import cn from 'classnames'
 import React, { useMemo } from 'react'
 import { LogoIcon, RbkLogoIcon } from '../../../assets'
 import { Button } from '../../../components'
+import { LINK } from '../../Main/constants'
 import Preview from './rbkPreview.png'
 import classes from './Step1.module.css'
 
@@ -9,7 +10,7 @@ type Props = {
   onNext: () => void
 }
 export const Step1 = ({ onNext }: Props) => {
-  const name = useMemo(()=>{
+  const name = useMemo(() => {
     const Telegram = Reflect.get(window, 'Telegram')
 
     return Telegram.WebApp.initDataUnsafe?.user?.first_name || 'друг'
@@ -30,7 +31,37 @@ export const Step1 = ({ onNext }: Props) => {
       </div>
 
       <div className={classes['video-player']}>
+        <div className="wistia_responsive_wrapper"
+             style={{ height: '100%', left: 0, position: 'absolute', top: 0, width: '100%', borderRadius: '10px' }}>
+          <div className="wistia_embed wistia_async_61i76t87pp seo=false videoFoam=true"
+               style={{ height: '100%', position: 'relative', width: '100%', borderRadius: '10px' }}>
+            <div className="wistia_swatch"
+                 style={{
+                   height: '100%',
+                   left: 0,
+                   opacity: 0,
+                   overflow: 'hidden',
+                   position: 'absolute',
+                   top: 0,
+                   transition: 'opacity 200ms',
+                   width: '100%',
+                   borderRadius: '10px',
+                 }}>
+              <img src="https://fast.wistia.com/embed/medias/61i76t87pp/swatch"
+                   style={{
+                     filter: 'blur(5px)',
+                     height: '100%',
+                     objectFit: 'contain',
+                     width: '100%',
+                     borderRadius: '10px',
+                   }} alt=""
+                   aria-hidden="true"
+                // onLoad="this.parentNode.style.opacity=1;"
+              />
+            </div>
+          </div>
 
+        </div>
       </div>
 
       <div className={classes['text-block']}>
@@ -41,11 +72,13 @@ export const Step1 = ({ onNext }: Props) => {
         </p>
       </div>
 
-      <a href="#" className={classes.paper}>
+      <a href={LINK.RBK} target="_blank" rel="noopener noreferrer"
+         className={classes.paper}>
         <RbkLogoIcon/>
         <div className={classes['paper-content']}>
           <img width={58} height={51} src={Preview} alt="ico" className={classes.preview}/>
-          <p className={classes.text}>Про MAIN: зарождающийся тренд. Почему за децентрализованными соцсетями будущее.</p>
+          <p className={classes.text}>Про MAIN: зарождающийся тренд. Почему за децентрализованными соцсетями
+            будущее.</p>
         </div>
       </a>
 

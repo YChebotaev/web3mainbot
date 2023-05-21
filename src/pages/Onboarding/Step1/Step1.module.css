@@ -49,8 +49,12 @@
   background: #18141A;
   border-radius: 10px;
   padding-bottom: 56.25%;
+
 }
 
+.video-player div {
+  border-radius: 10px;
+}
 
 .paper {
   text-decoration: none;
