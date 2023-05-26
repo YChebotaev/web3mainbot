@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React, { Fragment, MouseEvent, useState } from 'react'
 import { useSendMessageMutation, useSetLeadMutation } from '../../../api'
-import { MessageButtons } from '../../../api/types'
+import { ButtonTypes, MessageButtons } from '../../../api/types'
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../assets'
 import { Button, Divider } from '../../../components'
 import { LINK } from '../constants'
@@ -11,6 +11,7 @@ import classes from './SupportBlock.module.css'
 type Props = {
   onStartOnboarding: () => void
 }
+const Telegram = Reflect.get(window, 'Telegram')
 
 export const SupportBlock = ({ onStartOnboarding }: Props) => {
   const [open, setOpen] = useState(false)
@@ -18,21 +19,16 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
   const [setLead] = useSetLeadMutation()
   const [sendMessage] = useSendMessageMutation()
 
-  const handleClickMAIN = (key: string, link: string) => {
+  const handleClickMAIN = (key: string, buttonType: ButtonTypes | null) => {
     if (key === 'question') {
-      setLead().unwrap()
+      setLead({ buttonType: 'support' }).unwrap()
         .then(() => window.location.href = LINK.SUPPORT)
-        .then(() => {
-          const Telegram = Reflect.get(window, 'Telegram')
-          Telegram.WebApp.close()
-        })
+        .then(() => Telegram.WebApp.close())
       return
     }
     sendMessage({ messageButton: key as MessageButtons }).unwrap()
-      .then(() => {
-        const Telegram = Reflect.get(window, 'Telegram')
-        Telegram.WebApp.close()
-      })
+      .then(() => buttonType && setLead({ buttonType }).unwrap())
+      .then(() => Telegram.WebApp.close())
   }
   const handleBack = () => setIsMAIN(false)
   const handleOpen = () => setOpen(true)
@@ -93,7 +89,7 @@ export const SupportBlock = ({ onStartOnboarding }: Props) => {
           return (
             <Fragment key={it.key}>
               <Divider/>
-              <button onClick={() => handleClickMAIN(it.key, it.link)} id={it.key}
+              <button onClick={() => handleClickMAIN(it.key, it.type)} id={it.key}
                       className={cn(classes.title, classes['menu-item'])}>
                 {it.title}
                 <ArrowRightIcon/>

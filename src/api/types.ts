@@ -1,4 +1,4 @@
-import { MESSAGE_BUTTON } from './constants'
+import { BUTTON_TYPE, MESSAGE_BUTTON } from './constants'
 
 export type WebinarSchema = {
   'title': string,
@@ -36,3 +36,4 @@ export type Webinar = {
 }
 
 export type MessageButtons = typeof MESSAGE_BUTTON[keyof typeof MESSAGE_BUTTON]
+export type ButtonTypes = typeof BUTTON_TYPE[keyof typeof BUTTON_TYPE]

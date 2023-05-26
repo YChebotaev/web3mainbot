@@ -5,3 +5,9 @@ export const MESSAGE_BUTTON = {
   STAKING: 'staking_main',
   SELL: 'sell_main',
 } as const
+
+export const BUTTON_TYPE = {
+  SUPPORT: 'support',
+  MAIN: 'buy_main',
+  STAKING: 'staking',
+} as const

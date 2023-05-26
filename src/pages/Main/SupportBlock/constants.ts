@@ -1,4 +1,4 @@
-import { MESSAGE_BUTTON } from '../../../api/constants'
+import { BUTTON_TYPE, MESSAGE_BUTTON } from '../../../api/constants'
 
 export const SUPPORT_MENU = [
   {
@@ -21,32 +21,32 @@ export const SUPPORT_MENU = [
 export const MAIN_BUY_MENU = [
   {
     title: 'Купить MAIN через обменник NUMMA',
-    link: '#',
     key: MESSAGE_BUTTON.NUMMA_FROM,
+    type: null
   },
   {
     title: 'Купить за криптовалюту',
-    link: '#',
     key: MESSAGE_BUTTON.CRYPTO_FROM,
+    type: BUTTON_TYPE.MAIN
   },
   {
     title: 'За рубли с карты через Binance',
-    link: '#',
     key: MESSAGE_BUTTON.BINANCE_FROM,
+    type: BUTTON_TYPE.MAIN
   },
   {
     title: 'Стейкинг MAIN под 30% APY',
-    link: '#',
     key: MESSAGE_BUTTON.STAKING,
+    type: BUTTON_TYPE.STAKING
   },
   {
     title: 'Продать MAIN',
-    link: '#',
     key: MESSAGE_BUTTON.SELL,
+    type: null
   },
   {
     title: 'Задать вопрос специалисту',
-    link: '#',
     key: 'question',
+    type: BUTTON_TYPE.SUPPORT
   },
 ]

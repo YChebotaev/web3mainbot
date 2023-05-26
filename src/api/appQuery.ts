@@ -1,7 +1,8 @@
 import { createApi, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 import { getUserId } from '../utils'
 import { baseQuery } from './config'
-import { MessageButtons, User, Webinar, WebinarSchema } from './types'
+import { BUTTON_TYPE } from './constants'
+import { ButtonTypes, MessageButtons, User, Webinar, WebinarSchema } from './types'
 import { normalizeWebinar } from './utils'
 
 const id = getUserId()
@@ -83,11 +84,11 @@ export const appQuery = createApi({
         },
       }),
 
-      setLead: build.mutation<{ id: string, phone: string }, void>({
-        query: () => ({
+      setLead: build.mutation<{ id: string, phone: string }, { buttonType: ButtonTypes } | void>({
+        query: (params) => ({
           url: `/lead/`,
           method: 'POST',
-          body: { user_id: id },
+          body: { user_id: id, btn_type: params?.buttonType || BUTTON_TYPE.SUPPORT },
         }),
       }),
 
@@ -109,5 +110,5 @@ export const {
   useLazyGetWebinarQuery,
   useSetLeadMutation,
   useSubscribeToWebinarMutation,
-  useSendMessageMutation
+  useSendMessageMutation,
 } = appQuery
