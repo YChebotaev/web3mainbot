@@ -13,12 +13,11 @@ type Props = {
   phone: string | undefined
 }
 
-
 export const Webinars = ({ className, style, phone }: Props) => {
   const { data: webinar } = useGetWebinarQuery()
 
   const [showPhone, setShowPhone] = useState(false)
-  const [subscribe] = useSubscribeToWebinarMutation()
+  const [subscribe, { isLoading }] = useSubscribeToWebinarMutation()
 
   const handleSubmit = () => {
     subscribe().unwrap()
@@ -50,7 +49,7 @@ export const Webinars = ({ className, style, phone }: Props) => {
         {showPhone && (
           <div className={classes.block2}>
             <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
-            <Phone onSubmit={handleSubmit}/>
+            <Phone onSubmit={handleSubmit} isLoading={isLoading}/>
           </div>
         )}
       </div>

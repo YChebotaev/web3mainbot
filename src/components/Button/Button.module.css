@@ -2,7 +2,7 @@
   outline: none;
   padding: 10px;
   border-radius: 10px;
-  font-family: "SF UI Display Semibold";
+  font-family: "SF UI Display Semibold", serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -22,8 +22,15 @@
 }
 
 .btn-filled {
-  font-family: "SF UI Display Medium";
+  font-family: "SF UI Display Medium", serif;
   background: linear-gradient(274.09deg, rgba(91, 10, 120, 0.5) 2.7%, rgba(173, 129, 247, 0.5) 98.26%), #B078E7;
   border-radius: 10px;
   color: #fff;
+}
+
+.btn-text {
+  background: transparent;
+  border-radius: 10px;
+  color: #AD81F7;
+  padding: 4px;
 }

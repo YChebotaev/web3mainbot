@@ -1,16 +1,18 @@
+import cn from 'classnames'
 import { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { useSetUserInfoMutation } from '../../api'
-
-import { ArrowButton } from './ArrowButton'
+import { ArrowRightIcon, SpinIcon } from '../../assets'
+import { Button } from '../Button'
 
 import classes from './Phone.module.css'
 
 type Props = {
   onSubmit: (phone: string) => void;
+  isLoading?: boolean
 }
-export const Phone = ({ onSubmit }: Props) => {
+export const Phone = ({ onSubmit, isLoading }: Props) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState('')
   const [setUserPhone] = useSetUserInfoMutation()
@@ -39,11 +41,12 @@ export const Phone = ({ onSubmit }: Props) => {
       <div className={classes.phone}>
         <div className={classes.left}>
           <PhoneInput
+            disabled={isLoading}
             enableAreaCodes
             country="ru"
             value={value}
             onChange={handleChange}
-            containerClass={classes.container}
+            containerClass={cn(classes.container, isLoading && classes.disabled)}
             inputClass={classes.input}
             buttonClass={classes.button}
             dropdownClass={classes.dropdown}
@@ -52,7 +55,13 @@ export const Phone = ({ onSubmit }: Props) => {
         </div>
 
         <div className={classes.right}>
-          <ArrowButton onClick={handleSubmit}/>
+          {isLoading
+            ? <SpinIcon className={classes.spin}/>
+            : (
+              <Button variant="text" onClick={handleSubmit}>
+                <ArrowRightIcon/>
+              </Button>
+            )}
         </div>
       </div>
 

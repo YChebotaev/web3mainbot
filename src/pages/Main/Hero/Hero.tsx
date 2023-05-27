@@ -17,11 +17,14 @@ type Props = {
   phone: string | undefined
 }
 export const Hero = ({ onStartOnboarding, className, style, phone }: Props) => {
+  const [isLoading, setLoading] = useState(false)
   const [showPhone, setShowPhone] = useState(false)
 
   const handlePayByPancakeSwap = () => {
-    setShowPhone(false)
+    setLoading(true)
     window.location.href = LINK.PANCAKE_SWAP
+    setShowPhone(false)
+    setLoading(false)
   }
 
   const handleClick = () => {
@@ -97,7 +100,7 @@ export const Hero = ({ onStartOnboarding, className, style, phone }: Props) => {
       {showPhone && (
         <div className={classes.block5}>
           <div className={classes.phoneLabel}>Введите ваш номер телефона:</div>
-          <Phone onSubmit={handlePayByPancakeSwap}/>
+          <Phone isLoading={isLoading} onSubmit={handlePayByPancakeSwap}/>
         </div>
       )}
 

@@ -50,7 +50,7 @@
 .dropdown {
   background-color: rgba(173, 129, 247, 0.2) !important;
   backdrop-filter: blur(8.5px);
-  border-radius: 0px 0px 10px 10px !important;
+  border-radius: 0 0 10px 10px !important;
 }
 
 .dropdown > :global(.highlight) {
@@ -69,5 +69,24 @@
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
+.disabled {
+  opacity: 0.6;
+}
+
 .search {
+}
+
+.spin {
+  animation: spin 1.2s ease-in-out 0.2s infinite;
+  height: 32px;
+  width: 32px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
