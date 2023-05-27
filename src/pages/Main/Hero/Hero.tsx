@@ -25,6 +25,8 @@ export const Hero = ({ onStartOnboarding, className, style, phone }: Props) => {
   }
 
   const handleClick = () => {
+    setShowPhone(true)
+    return
     if (!phone) {
       setShowPhone(true)
       return
